@@ -11,3 +11,4 @@ setuptools==80.9.0
 sqlparse==0.5.3
 tzdata==2025.2
 urllib3==2.5.0
+django-summernote==0.8.20.0

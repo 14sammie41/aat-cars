@@ -35,6 +35,7 @@ This will be for dependencies as I go through this project - complete as they co
 These bugs were found as I was writing the code, not whilst testing, hence being at this point in the README file.
 
 + When deploying my initial commit to Heroku I was having issues with it having a server error. It turns out this was caused by having a comma in my `ALLOWED_HOSTS = []` segment in `settings.py`. I solved this by finding the error in the Heroku CLI log.
++ For the sake of proving that I both know how to and ensuring that they work, I created the `posts.json` file to enable the use of a `json` file. This will also facilitate a 'backup' function to allow me to put some posts as permanent fixtures even if the page crashes for any reason, so there will never be a blank page loaded.
 
 
 ## Source for images and text
