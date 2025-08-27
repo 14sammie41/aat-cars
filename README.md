@@ -42,7 +42,8 @@ These bugs were found as I was writing the code, not whilst testing, hence being
 
 All images below have been compressed using iloveimg.com to help with load speed on the website.
 
-+ ![]() alt,
++ ![2003 Focus RS](static\images\2003-focus-rs.jpg) alt, 2003 Ford Focus RS, image courtesy of Millie Harris - Owner.
+
 
 
 ## Deployment process
