@@ -29,6 +29,11 @@ body {
     background-color: #F9FAFC;
 }
 
+/* Moves content down to stop navbar overlap */
+.main-content {
+  margin-top: 60px;
+}
+
 .card {
     border: none;
     background-color: transparent;
