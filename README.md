@@ -23,7 +23,7 @@ I have sketched up
 This will be for dependencies as I go through this project - complete as they come through.
 + [Bootstrap](https://getbootstrap.com/) has been used throughout the project to add items like a navbar, a carousel, and a footer. I have annotated throughout the project, the key areas this has been used.
 + [Microsoft Create](https://create.microsoft.com/en-us/features/ai-image-generator) was used to create AI images to utilize for the Home page and some content in other areas.
-+ [IMG Online](https://www.imgonline.com.ua/eng/get-dominant-colors.php) was used to pull the key colors out of the gaming.jpeg file. These colors were used to create the Root colors of the page and I made sure that they were readable colors on all screens for accessibility.
++ [Canva](https://www.canva.com/colors/color-palette-generator/) was used to choose a colour pallette for the page that aligns with the bright and aggressive nature of some of the cars on the page.
 + [Google Fonts](https://fonts.google.com/) used to import two font styles into the style.css file. Both fonts were attributed to the Root in CSS making the styles uniform across the site.
 + [Font Awesome](https://fontawesome.com/) used to import icons for social links in the footer section. Will most likely be used elsewhere too.
 + [Favicon.io](https://favicon.io/#google_vignette) used to create a simple favicon with the correct colors and fonts as used throughout the site. Then link to each page.
@@ -36,6 +36,7 @@ These bugs were found as I was writing the code, not whilst testing, hence being
 
 + When deploying my initial commit to Heroku I was having issues with it having a server error. It turns out this was caused by having a comma in my `ALLOWED_HOSTS = []` segment in `settings.py`. I solved this by finding the error in the Heroku CLI log.
 + For the sake of proving that I both know how to and ensuring that they work, I created the `posts.json` file to enable the use of a `json` file. This will also facilitate a 'backup' function to allow me to put some posts as permanent fixtures even if the page crashes for any reason, so there will never be a blank page loaded.
++ When auto setting up for users to have a log in to enable commenting etc. I found that the `allauth` download had automatically put those templates into a sub folder called `allauth` meaning that it was not extending `base.html` to allow for consistent formatting. When I moved the `account` folder out of the `allauth` folder all links then worked.
 
 
 ## Source for images and text
