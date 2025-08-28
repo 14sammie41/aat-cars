@@ -1,42 +1,41 @@
+/* Google fonts import as attributed in README file */
+@import url('https://fonts.googleapis.com/css2?family=Capriola&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+/* CSS variables - colours pulled from Canva and fonts from Google fonts - attributed on README file */
+:root {
+    --primary-font: 'PT Serif', serif;
+    --secondary-font: 'PT Sans', sans-serif;
+    --primary-color: #0000FF;
+    --secondary-color: #7ec8e3;
+    --text-color: #050a30;
+    --background-color: #d4f1f4;
+    --highlight-color: #f8d210;
+}
+
+
 body {
-    background-color: #F9FAFC;
+    background-color: var(--background-color);
 }
 
-.brand {
-    font-family: Lato, sans-serif;
-    font-size: 1.4rem;
-    font-weight: 700;
-    color: #4A4A4F;
-}
 
-.red-o {
-    color: #E84610;
-}
-
-.thin {
-    font-weight: 300;
-}
-
-.light-bg {
-    background-color: #fff;
-}
-
-.dark-bg {
-    background-color: #445261;
-}
-
-.main-bg {
-    background-color: #F9FAFC;
-}
 
 /* Moves content down to stop navbar overlap */
 .main-content {
   margin-top: 60px;
 }
 
+/* Navbar styles */
+
+.navbar {
+    background-color: var(--primary-color) !important;
+    font-family: var(--secondary-font) !important;
+    color: var(--text-color);
+}
+
+/* The below content is designed to make all pages cohesive, but also eye catching */
 .card {
     border: none;
-    background-color: transparent;
+    background-color: var(--secondary-color);
 }
 
 .image-container {
@@ -48,7 +47,7 @@ body {
     bottom: 5%;
     min-width: 30%;
     left: -2px;
-    background-color: #188181;
+    background-color: var(--primary-color);
 }
 
 .scale {
@@ -57,8 +56,7 @@ body {
 }
 
 .author {
-    color: white;
-    margin: 4px;
+    color: var(--text-color);
     text-transform: uppercase;
 }
 
@@ -98,12 +96,12 @@ body {
 
 .post-link {
     text-decoration: none;
-    color: #445261;
+    color: var(--text-color);
 }
 
 .post-link:hover,
 .page-link {
-    color: #E84610;
+    color: var(--primary-color);
 }
 
 .post-title {
@@ -163,4 +161,20 @@ body {
 
 .approval {
     color: rgb(222, 146, 168);
+}
+
+/* Footer */
+
+footer {
+    background-color: var(--background-color);
+}
+
+#social {
+    padding-bottom: 2rem;
+    background-color: var(--secondary-color);
+}
+
+#social i {
+    font-size: 2rem;
+    color: var(--background-color);
 }
