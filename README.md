@@ -37,6 +37,7 @@ These bugs were found as I was writing the code, not whilst testing, hence being
 + When deploying my initial commit to Heroku I was having issues with it having a server error. It turns out this was caused by having a comma in my `ALLOWED_HOSTS = []` segment in `settings.py`. I solved this by finding the error in the Heroku CLI log.
 + For the sake of proving that I both know how to and ensuring that they work, I created the `posts.json` file to enable the use of a `json` file. This will also facilitate a 'backup' function to allow me to put some posts as permanent fixtures even if the page crashes for any reason, so there will never be a blank page loaded.
 + When auto setting up for users to have a log in to enable commenting etc. I found that the `allauth` download had automatically put those templates into a sub folder called `allauth` meaning that it was not extending `base.html` to allow for consistent formatting. When I moved the `account` folder out of the `allauth` folder all links then worked.
++ When testing deployment to Heroku after adding authentication onto my project i found that my CSS was not being carried over to my Heroku deployed project. After checking my `settings.py` file incase I had missed a path, i found that i had forgotten to run `collectstatic` before saving my files for deployment. This corrected the issue.
 
 
 ## Source for images and text

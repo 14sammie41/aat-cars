@@ -34,6 +34,7 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+
   </head>
   <body class="d-flex flex-column h-100 main-bg">
     <!-- Navbar built with Bootstrap and heavily edited for UX -->
@@ -94,6 +95,13 @@
     </nav>
 
     <main class="flex-shrink-0 main-bg main-content">
+        <!-- Added a little nod to the user to show they are logged in -->
+      {% if user.is_authenticated %}
+      <p class="text-end m-3">You are logged in as {{ user }}</p>
+      {% else %}
+      <p class="text-end m-3">You are not logged in</p>
+      {% endif %} 
+      
       {% block content %}
       <!-- Content Goes here -->
       {% endblock content %}
