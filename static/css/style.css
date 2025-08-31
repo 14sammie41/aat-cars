@@ -60,6 +60,21 @@ body {
     text-transform: uppercase;
 }
 
+/* CSS styling designed to ensure that the alert to tell the user they have posted a comment */
+.alert {
+    margin-top: 60px;
+    padding: 15px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+/* Slightly different colours used so the alert stands out. */
+.alert-success {
+    background-color: #d4edda !important;
+    color: #155724 !important;
+    border: 1px solid #c3e6cb !important;
+}
+
 .masthead {
     margin-top: 10px;
     overflow: hidden;
