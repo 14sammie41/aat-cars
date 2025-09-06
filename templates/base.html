@@ -1,5 +1,6 @@
 {% load static %} 
 {% url 'home' as home_url %} 
+{% url 'contactus' as contactus_url %}
 {% url 'account_login' as login_url %} 
 {% url 'account_signup' as signup_url %} 
 {% url 'account_logout' as logout_url %}
@@ -60,6 +61,15 @@
                 aria-current="page"
                 href="{% url 'home' %}"
                 >Home</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link
+                {% if request.path == contactus_url %}active{%endif%}"
+                aria-current="page"
+                href="{% url 'contactus' %}"
+                >Contact Us</a
               >
             </li>
             {% if user.is_authenticated %}
