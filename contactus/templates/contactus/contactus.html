@@ -1,77 +1,61 @@
-{% extends 'base.html' %}
-{% block content %}
+{% extends 'base.html' %} 
+{% block content %} 
 {% load static %}
-<div class="row contact-table">
-        <div class="col-12 col-md-6">
-          <h3 class="text-center">Want to find out more?</h3>
-          <table class="table">
-            <caption>
-              I will endeavour to reply to all emails within 24 hours and if you
-              call outside the above hours and leave a message I will get back
-              to you on the next working day.
-            </caption>
-            <thead>
-              <tr>
-                <th scope="col">Let's Talk</th>
-                <th scope="col"></th>
-                <th scope="col"></th>
-              </tr>
-            </thead>
-            <tbody class="table-group-divider">
-              <tr>
-                <th scope="row">Phone Number</th>
-                <td>07803 167 835</td>
-                <td>Mon-Fri 9-5</td>
-              </tr>
-              <tr>
-                <th scope="row">Email Address</th>
-                <td>14sammie41@gmail.com</td>
-                <td>Anytime</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <!-- Added a basic contact form from Bootstrap, stripped and edited to suit user needs and linked to a success page to confirm to user it was completed correctly -->
-        <div class="col-12 col-md-6">
-          <h3 class="text-center">Ask us anything!</h3>
-          <form action="success.html" method="GET">
-            <div class="mb-3">
-              <label for="name" class="form-label">Name</label>
-              <input
-                type="text"
-                class="form-control"
-                id="name"
-                aria-describedby="name"
-                required>
-            </div>
-            <div class="mb-3">
-              <label for="email" class="form-label">Email</label>
-              <input
-                type="email"
-                class="form-control"
-                id="email"
-                aria-describedby="email"
-                required>
-            </div>
-            <div class="mb-3">
-              <label for="enquiry" class="form-label">Enquiry</label>
-              <div class="form-text">
-                What would you like to know?
-              </div>
-              <textarea
-                name="enquiry"
-                id="enquiry"
-                class="form-control"
-                rows="2"
-                required
-              ></textarea>
-            </div>
-            <div class="text-center">
-            <button type="submit" class="btn custom-button-filled">
-              Let's go!
-            </button>
-          </div>
-          </form>
-        </div>
+
+<div class="row d-flex align-items-center">
+  <div class="col-12 col-md-6 text-center">
+    <h3 class="text-center">Who are we?</h3>
+    <img src="{% static 'images/just-me.jpg' %}" 
+        alt="Image of Sam and Trev" 
+        class="img-fluid"
+        width="75%">
+    <!-- <caption>
+      I will endeavour to reply to all emails within 24 hours and if you call
+      outside the above hours and leave a message I will get back to you on the
+      next working day.
+    </caption> -->
+  </div>
+  <!-- Added a basic contact form from Bootstrap, stripped and edited to suit user needs and linked to a success page to confirm to user it was completed correctly -->
+  <div class="col-12 col-md-6">
+    <h3 class="text-center">Ask us anything!</h3>
+    <form action="success.html" method="GET">
+      <div class="mb-3">
+        <label for="name" class="form-label">Name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="name"
+          aria-describedby="name"
+          required
+        />
       </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input
+          type="email"
+          class="form-control"
+          id="email"
+          aria-describedby="email"
+          required
+        />
+      </div>
+      <div class="mb-3">
+        <label for="enquiry" class="form-label">Enquiry</label>
+        <div class="form-text">What would you like to know?</div>
+        <textarea
+          name="enquiry"
+          id="enquiry"
+          class="form-control"
+          rows="2"
+          required
+        ></textarea>
+      </div>
+      <div class="text-center">
+        <button type="submit" class="btn custom-button-filled">
+          Let's go!
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
 {% endblock content %}

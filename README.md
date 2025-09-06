@@ -8,7 +8,7 @@ The long term goal of the page will be for clubs and groups to be able to sell t
 
 ## User interactions
 
-The base idea will be to have pre published articles from owners with their car and details of who they are etc. The home page will be a short overview of the individual posts with a preview of the image of the car and a blurb of the article itself. Then there will be a click to open option for each of the posts to be able to see and read more. The final page will only be viewable to permitted users, to allow for admins to do site maintenance.
+The base idea will be to have pre published articles from owners with their car and details of who they are etc. The home page will be a short overview of the individual posts with a blurb of the article itself. I aim to add a thumbnail image of the car which i can integrate into the actual article, however this may be more learning than I have time for. Then there will be a click to open option for each of the posts to be able to see and read more, this will incorporate a comments section. I will have a basic page for contacting me as the creator and mediator and a picture of me for reference. The final page will only be viewable to permitted users, to allow for admins to do site maintenance.
 
 ## Wireframes of all three pages of the site:
 
@@ -29,6 +29,7 @@ This will be for dependencies as I go through this project - complete as they co
 + [Favicon.io](https://favicon.io/#google_vignette) used to create a simple favicon with the correct colors and fonts as used throughout the site. Then link to each page.
 + [IloveIMG.com](https://www.iloveimg.com/) was used to compress all of my images to optimize page load up.
 + [Grammarly](https://app.grammarly.com/ddocs/2742182934) was used to check and correct all of the grammar on this README file.
++ [Geeks for Geeks](https://www.geeksforgeeks.org/python/python-uploading-images-in-django/) was used to learn how to add user images into my Django models to bring the blog posts to life.
 
 ## Bug problems and solutions
 
@@ -38,7 +39,7 @@ These bugs were found as I was writing the code, not whilst testing, hence being
 + For the sake of proving that I both know how to and ensuring that they work, I created the `posts.json` file to enable the use of a `json` file. This will also facilitate a 'backup' function to allow me to put some posts as permanent fixtures even if the page crashes for any reason, so there will never be a blank page loaded.
 + When auto setting up for users to have a log in to enable commenting etc. I found that the `allauth` download had automatically put those templates into a sub folder called `allauth` meaning that it was not extending `base.html` to allow for consistent formatting. When I moved the `account` folder out of the `allauth` folder all links then worked.
 + When testing deployment to Heroku after adding authentication onto my project i found that my CSS was not being carried over to my Heroku deployed project. After checking my `settings.py` file incase I had missed a path, i found that i had forgotten to run `collectstatic` before saving my files for deployment. This corrected the issue.
-+ When trying to get the user managed comments to show a message to the user that it is waiting approval i found that the message was not showing. Initially because of the amout of code I had added, I assumed that the reason for this was due to a missing link between the template and the view. After triple checking all of the code, I reverted to checking the inspect view on Chrome Dev Tools to find that the message was showing behind my nav bar. After adding a `margin-top` to the alert in `style.css` it was showing. After doing the above i realised I had not added the `main-content` class to the `container` that the alert code was in so therefore it was inheriting basic classes from Bootstrap.
++ When trying to get the user managed comments to show a message to the user that it is waiting approval i found that the message was not showing. Initially because of the amount of code I had added, I assumed that the reason for this was due to a missing link between the template and the view. After triple checking all of the code, I reverted to checking the inspect view on Chrome Dev Tools to find that the message was showing behind my nav bar. After adding a `margin-top` to the alert in `style.css` it was showing. After doing the above i realised I had not added the `main-content` class to the `container` that the alert code was in so therefore it was inheriting basic classes from Bootstrap.
 
 
 ## Source for images and text
@@ -46,6 +47,7 @@ These bugs were found as I was writing the code, not whilst testing, hence being
 All images below have been compressed using iloveimg.com to help with load speed on the website.
 
 + ![2003 Focus RS](static\images\2003-focus-rs.jpg) alt, 2003 Ford Focus RS, image courtesy of Millie Harris - Owner.
++ ![Sam and Trev](static\images\just-me.jpg) alt, Image of Sam and Trev, images courtesy of Samantha Spencer - Owner.
 
 
 

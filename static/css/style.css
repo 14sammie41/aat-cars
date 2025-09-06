@@ -21,15 +21,17 @@ body {
 
 /* Moves content down to stop navbar overlap */
 .main-content {
-  margin-top: 60px;
+  margin-top: 30px;
 }
 
 /* Navbar styles */
 
-.navbar {
+.navbar,
+.nav-link,
+.navbar-brand {
     background-color: var(--primary-color) !important;
     font-family: var(--secondary-font) !important;
-    color: var(--text-color);
+    color: whitesmoke !important;
 }
 
 /* The below content is designed to make all pages cohesive, but also eye catching */
