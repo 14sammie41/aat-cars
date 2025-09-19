@@ -25,6 +25,13 @@
         <p class="card-text">{{ post.content | safe }}</p>
       </div>
     </div>
+    <div class="col-md-6 image-container d-flex justify-content-center align-items-center mb-4 mt-3">
+        <!-- Post image goes in this img tag -->
+        <img
+          class="post-image"
+          src="{{ post.image.url }}"
+          alt="Post image">
+    </div>
   </div>
   <!-- Displaying count of comments -->
   <div class="row">
