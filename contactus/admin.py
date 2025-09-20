@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Contactus
+from .models import Contactus, ContactMessage
 from django_summernote.admin import SummernoteModelAdmin
 
 # Register your models here.
@@ -7,3 +7,5 @@ from django_summernote.admin import SummernoteModelAdmin
 class ContactusAdmin(SummernoteModelAdmin):
 
     summernote_fields = ('content',)
+
+admin.site.register(ContactMessage)
