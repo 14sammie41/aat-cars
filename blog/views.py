@@ -82,6 +82,7 @@ def comment_delete(request, slug, comment_id):
     """
     View to delete comments
     """
+    comment = get_object_or_404(Comment, id=comment_id, post__slug=slug)
     if request.method == "POST":
         queryset = Post.objects.filter(status=1)
         post = get_object_or_404(queryset, slug=slug)

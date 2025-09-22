@@ -114,10 +114,13 @@
         This action cannot be undone.
       </div>
       <div class="modal-footer">
+          <!-- Had to add a form in to enable the delete function to work. -->
+        <form id="deleteConfirm" method="POST">
+          {% csrf_token %}
+          <button type="submit" class="btn btn-danger">Delete</button>
+        </form>
         <button type="button" class="btn btn-secondary"
           data-bs-dismiss="modal">Close</button>
-        <a id="deleteConfirm" href="#" class="btn
-          btn-danger">Delete</a>
       </div>
     </div>
   </div>
