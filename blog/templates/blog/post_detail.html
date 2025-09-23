@@ -116,6 +116,7 @@
       <div class="modal-footer">
           <!-- Had to add a form in to enable the delete function to work. -->
         <form id="deleteConfirm" method="POST">
+          {{ form | crispy }}
           {% csrf_token %}
           <button type="submit" class="btn btn-danger">Delete</button>
         </form>
