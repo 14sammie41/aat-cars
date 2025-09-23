@@ -1,6 +1,6 @@
 {% load static %} 
 {% url 'home' as home_url %} 
-{% url 'contactus' as contactus_url %}
+{% url 'contactus' as contactus_url %} 
 {% url 'account_login' as login_url %} 
 {% url 'account_signup' as signup_url %} 
 {% url 'account_logout' as logout_url %}
@@ -9,15 +9,14 @@
 <html class="h-100" lang="en">
   <head>
     <title>All About The Cars</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Google Fonts CSS -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
       href="https://fonts.googleapis.com/css2?family=Capriola&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
-      rel="stylesheet"
-    />
+      rel="stylesheet">
 
     <!-- Font Awesome CSS -->
     <script
@@ -30,14 +29,15 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
-      crossorigin="anonymous"
-    />
+      crossorigin="anonymous">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
-
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
   </head>
-  <body data-post-slug="{{ post.slug }}" class="d-flex flex-column h-100 main-bg">
+  <body
+    data-post-slug="{{ post.slug }}"
+    class="d-flex flex-column h-100 main-bg"
+  >
     <!-- Navbar built with Bootstrap and heavily edited for UX -->
     <nav id="navbar" class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
       <div class="container-fluid">
@@ -65,8 +65,7 @@
             </li>
             <li class="nav-item">
               <a
-                class="nav-link
-                {% if request.path == contactus_url %}active{%endif%}"
+                class="nav-link {% if request.path == contactus_url %}active{%endif%}"
                 aria-current="page"
                 href="{% url 'contactus' %}"
                 >Contact Us</a
@@ -105,82 +104,87 @@
     </nav>
 
     <!-- displaying Django messages -->
-<div class="container main-content">
-  <div class="row">
-    <div class="col-md-8 offset-md-2">
-      {% if messages %}
-      {% for message in messages %}
-      <div class="alert alert-success {{ message.tags }} alert-dismissible
-        fade show" id="msg" role="alert">
-        {{ message | safe }}
-        <button type="button" class="btn-close"
-          data-bs-dismiss="alert" aria-label="Close"></button>
-      </div>
-      {% endfor %}
-      {% endif %}
-    </div>
-  </div>
-</div>
-
-<main class="flex-shrink-0 main-bg">
-
-    <main class="flex-shrink-0 main-bg main-content">
-      {% block content %}
-      <!-- Content Goes here -->
-      {% endblock content %}
-
-        <!-- Added a little nod to the user to show they are logged in -->
-      {% if user.is_authenticated %}
-      <p class="text-end m-3">You are logged in as {{ user }}</p>
-      {% else %}
-      <p class="text-end m-3">You are not logged in</p>
-      {% endif %} 
-    </main>
-
-    <!-- Footer for social media networking with mt-auto to stick to bottom of page-->
-    <footer id="social" class="footer mt-auto py-3">
-      <div class="container section">
-        <!-- Added my-4 flex class to give breathing space between main and footer -->
-        <!-- Also used icons from Font Awesome for social links, attributed in README -->
-        <div class="row my-4">
-          <div class="col social-links">
-            <a
-              href="https://www.linkedin.com/in/samantha-spencer-56521173/"
-              target="_blank"
-              rel="noopener"
-              aria-label="Samantha Spencer's LinkedIn profile (opens in new tab)"
-            >
-              <i class="fa-brands fa-linkedin"></i
-            ></a>
-            <a
-              href="https://github.com/14sammie41"
-              target="_blank"
-              rel="noopener"
-              aria-label="Samantha Spencer's GitHub profile (opens in new tab)"
-            >
-              <i class="fa-brands fa-square-github"></i
-            ></a>
-            <a
-              href="https://www.facebook.com/samanthaelsiespencer/"
-              target="_blank"
-              rel="noopener"
-              aria-label="Samantha Spencer's Facebook profile (opens in new tab)"
-            >
-              <i class="fa-brands fa-square-facebook"></i
-            ></a>
+    <div class="container main-content">
+      <div class="row">
+        <div class="col-md-8 offset-md-2">
+          {% if messages %} {% for message in messages %}
+          <div
+            class="alert alert-success {{ message.tags }} alert-dismissible
+        fade show"
+            id="msg"
+            role="alert"
+          >
+            {{ message | safe }}
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="alert"
+              aria-label="Close"
+            ></button>
           </div>
+          {% endfor %} {% endif %}
         </div>
       </div>
-    </footer>
+    </div>
 
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-      crossorigin="anonymous"
-    ></script>
-    
-    {% block extras %}
-    {% endblock %}
-    
+    <main class="flex-shrink-0 main-bg">
+      <div class="flex-shrink-0 main-bg main-content">
+        {% block content %}
+        <!-- Content Goes here -->
+        {% endblock content %}
+
+        <!-- Added a little nod to the user to show they are logged in -->
+        {% if user.is_authenticated %}
+        <p class="text-end m-3">You are logged in as {{ user }}</p>
+        {% else %}
+        <p class="text-end m-3">You are not logged in</p>
+        {% endif %}
+      </div>
+
+      <!-- Footer for social media networking with mt-auto to stick to bottom of page-->
+      <footer id="social" class="footer mt-auto py-3">
+        <div class="container section">
+          <!-- Added my-4 flex class to give breathing space between main and footer -->
+          <!-- Also used icons from Font Awesome for social links, attributed in README -->
+          <div class="row my-4">
+            <div class="col social-links">
+              <a
+                href="https://www.linkedin.com/in/samantha-spencer-56521173/"
+                target="_blank"
+                rel="noopener"
+                aria-label="Samantha Spencer's LinkedIn profile (opens in new tab)"
+              >
+                <i class="fa-brands fa-linkedin"></i
+              ></a>
+              <a
+                href="https://github.com/14sammie41"
+                target="_blank"
+                rel="noopener"
+                aria-label="Samantha Spencer's GitHub profile (opens in new tab)"
+              >
+                <i class="fa-brands fa-square-github"></i
+              ></a>
+              <a
+                href="https://www.facebook.com/samanthaelsiespencer/"
+                target="_blank"
+                rel="noopener"
+                aria-label="Samantha Spencer's Facebook profile (opens in new tab)"
+              >
+                <i class="fa-brands fa-square-facebook"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+      </footer>
+
+      <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"
+      ></script>
+
+      {% block extras %} 
+      {% endblock %}
+    </main>
   </body>
 </html>

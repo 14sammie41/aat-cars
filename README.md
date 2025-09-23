@@ -46,10 +46,9 @@ These bugs were found as I was writing the code, not whilst testing, hence being
 
 All images below have been compressed using iloveimg.com to help with load speed on the website.
 
-+ ![2003 Focus RS](static\images\2003-focus-rs.jpg) alt, 2003 Ford Focus RS, image courtesy of Millie Harris - Owner.
 + ![Sam and Trev](static\images\just-me.jpg) alt, Image of Sam and Trev, images courtesy of Samantha Spencer - Owner.
 
-
+Images used on the blog posts themselves have been uploaded from the original owner of each car with their permission. I used Cloudinary to host these images.
 
 ## Deployment process
 
@@ -86,7 +85,9 @@ As I have been testing most aspects as I write the code for the site, I am hopin
 
 ### Testing with validators:
 + First validator used was [W3Schools HMTL validator](https://validator.w3.org/#validate_by_input). Expecting possibly some missed slashes, but that should be all. 
-    + 
+    + Initial test of home page showed 13 errors, 9 of which were trailing slashes, fixed immediately, ther rest are detailed below:
+        + I had two errors attributed to having two `main` elements, this was my mistake when wrapping main content for the page. I swapped the child main element for a `div` to mitigate this issue.
+        + The final two errors were relate to the above as I had ended up missing a closing tag for the `main` element I had kept. This was resolved very easily by adding a closing `main` tag at the bottom of the footer content.
 + Second validator used was [W3Schools CSS Validator](https://jigsaw.w3.org/css-validator/#validate_by_input). Expecting some syntax errors as I haven't dived as deep on my CSS as I did on my HTML.
     + style.css shows no errors
 + Checked page using Chrome DevTools. Unsure what to expect, I think I have been pretty thorough with writing my code.
