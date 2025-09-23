@@ -2,6 +2,10 @@ from django.db import models
 
 # Create your models here.
 class Contactus(models.Model):
+    """
+    Model for the Contact Us page content
+    related to the admin interface.
+    """
     title = models.CharField(max_length=200)
     updated_on = models.DateTimeField(auto_now=True)
     content = models.TextField()
@@ -10,6 +14,10 @@ class Contactus(models.Model):
         return self.title
     
 class ContactMessage(models.Model):
+    """
+    Model for storing contact messages
+    related to the contact us form.
+    """
     name = models.CharField(max_length=100)
     email = models.EmailField()
     message = models.TextField()
