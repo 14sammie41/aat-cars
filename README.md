@@ -93,7 +93,10 @@ As I have been testing most aspects as I write the code for the site, I am hopin
         + The first was for a percentage accidentally left on an image when I was testing what I needed in my CSS. This was removed entirely as it was now defunct.
         + The second was regarding a closing `main` element but no opening `main` element was found. This is attributed to the issue with the home page so i knew i could get rid of the issue closing `main` element.
         + The third was because I had accidentally duplicated a `div` tag within the contactus page. I was able to remove this.
-    + 
+    + Initial test of the post_detail page found four errors detailed below:
+        + The first issue was with a duplicated `p` closing tag which when assessing the code I could not find. I asked CoPilot to check also, it was not found.
+        + The second and third issues were trailing slashes, fixed immediately.
+        + The final issue was with a duplicated closing `div` tag which had been caused due to me wrapping content for UX. This was removed and problem solved.
 + Second validator used was [W3Schools CSS Validator](https://jigsaw.w3.org/css-validator/#validate_by_input). Expecting some syntax errors as I haven't dived as deep on my CSS as I did on my HTML.
     + style.css shows no errors
 + Checked page using Chrome DevTools. Unsure what to expect, I think I have been pretty thorough with writing my code.
