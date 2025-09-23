@@ -88,6 +88,12 @@ As I have been testing most aspects as I write the code for the site, I am hopin
     + Initial test of home page showed 13 errors, 9 of which were trailing slashes, fixed immediately, ther rest are detailed below:
         + I had two errors attributed to having two `main` elements, this was my mistake when wrapping main content for the page. I swapped the child main element for a `div` to mitigate this issue.
         + The final two errors were relate to the above as I had ended up missing a closing tag for the `main` element I had kept. This was resolved very easily by adding a closing `main` tag at the bottom of the footer content.
+        + There were three remaining trailing slashes attributed to `hr` elements which have been left as they do not affect the functionality of the page in any way.
+    + Initial test of the contact us page found three errors detailed below:
+        + The first was for a percentage accidentally left on an image when I was testing what I needed in my CSS. This was removed entirely as it was now defunct.
+        + The second was regarding a closing `main` element but no opening `main` element was found. This is attributed to the issue with the home page so i knew i could get rid of the issue closing `main` element.
+        + The third was because I had accidentally duplicated a `div` tag within the contactus page. I was able to remove this.
+    + 
 + Second validator used was [W3Schools CSS Validator](https://jigsaw.w3.org/css-validator/#validate_by_input). Expecting some syntax errors as I haven't dived as deep on my CSS as I did on my HTML.
     + style.css shows no errors
 + Checked page using Chrome DevTools. Unsure what to expect, I think I have been pretty thorough with writing my code.
