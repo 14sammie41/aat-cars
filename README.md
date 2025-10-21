@@ -10,6 +10,16 @@ The long term goal of the page will be for clubs and groups to be able to sell t
 
 The base idea will be to have pre published articles from owners with their car and details of who they are etc. The home page will be a short overview of the individual posts with a blurb of the article itself. I aim to add a thumbnail image of the car which i can integrate into the actual article, however this may be more learning than I have time for. Then there will be a click to open option for each of the posts to be able to see and read more, this will incorporate a comments section. I will have a basic page for contacting me as the creator and mediator and a picture of me for reference. The final page will only be viewable to permitted users, to allow for admins to do site maintenance.
 
+## Django database schema:
+
+![Schema](static\images\schema.png)
+
+## Entity Relationship Diagram:
+
+![ERD](static\images\erd.png)
+
+This allows users to create posts about their cars. Then those posts can be commented on by other users. Comments do require approval to protect from offensive commenting. Finally the contacting standalones are there to allow one to one communication with the site owner.
+
 ## How to:
 
 ### Dependencies and Credits
@@ -46,7 +56,7 @@ Images used on the blog posts themselves have been uploaded from the original ow
 
 ## Deployment process
 
-For security reasons I have not put the instructions for deploying my project through Django and Heroku on here as this is a public document. Should you wish to replicate the deployment process through Django and Heroku please follow all of the below and use the documentation on the relevant website.
+### For GitHub and local deployment:
 
 For tutors and examiners please find the live link below:
 [AAT cars](https://aat-cars-cd2cae6bf63c.herokuapp.com/)
@@ -70,6 +80,81 @@ Deployment, step-by-step guide:
 + Once in the Pages section on GitHub change the branch drop down to 'Main' and then click the save option.
 + Now go back to the code section of GitHub and click the deployment link on the right-hand side. (You may need to refresh the page to see the deployment link)
 + Once on the deployment page on GitHub click on the provided link and it will open up the deployed project.
+
+### For Heroku and live deployment:
+
+Ensure you have the follwing pre requisites to start:
++ Heroku CLI installed, follow the link > ![Heroku](https://devcenter.heroku.com/articles/heroku-cli)
++ A Git repository for the Django project.
++ A Heroku account (This can be created from the above link)
+1. Create required files as below:
+    + `pip freeze > requirements.txt`
+    + `Procfile`
+2. Inside `Procfile` add `web: gunicorn aatcars.wsgi`
+3. Ensure the `settings.py` file include the below code:
+            `import os
+        import dj_database_url
+        from dotenv import load_dotenv
+
+        load_dotenv()
+
+        # Security
+        SECRET_KEY = os.environ.get('SECRET_KEY')
+        DEBUG = os.environ.get('DEBUG', 'False').lower() == 'true'
+        ALLOWED_HOSTS = ['aat-cars-cd2cae6bf63c.herokuapp.com', 'localhost', '127.0.0.1']
+
+        # Database
+        DATABASES = {
+            'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+        }
+
+        # Static files
+        STATIC_URL = '/static/'
+        STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+        STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+
+        # Cloudinary
+        CLOUDINARY_STORAGE = {
+            'CLOUD_NAME': os.environ.get('CLOUDINARY_CLOUD_NAME'),
+            'API_KEY': os.environ.get('CLOUDINARY_API_KEY'),
+            'API_SECRET': os.environ.get('CLOUDINARY_API_SECRET'),
+        }
+        DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'`
+4. Create the Heroku app either in the terminal or on the Heroku website, terminal commands below:
+    + `heroku login`
+    + `heroku create your-app-name`
+5. Set your environment variables as deomnstrated in .env.example .
+6. Ensure you run the below commands in the terminal:
+    + `python manage.py makemigrations`
+    + `python manage.py migrate`
+    + `python manage.py collectstatic`
+7. The collect static command above is the link to the collect static function in the screenshot below in config vars.
+8. Set DEBUG to False for deployment.
+9. Add your chosen database and PostgreSQL.
+10. Commit your project to GitHub.
+11. Link your GitHub in the Heroku Deploy tab.
+12. In the Heroku deploy tab, click the Deploy button and wait for it to run.
+13. Open App.
++ ![Screenshot of config vars on Heroku](static\images\config-vars.png)
++ ![Screenshot of live homepage](static\images\aatcars-live.png)
++ ![Screenshot of .env.example file](static\images\example-screenshot-env.png)
+
+### Troubleshooting Heroku deployment:
+
++ If your static files are not loading ensure you have the example config vars set up for `DISABLE_COLLECTSTATIC` and that you have run `python manage.py collectstatic` in your terminal before commiting and deploying your project.
++ If youre database is not connecting make sure you have run your migrations by using `python manage.py migrate` in your terminal before commiting and deploying your project.
++ If the Cloudinary images are not working make sure your config vars are set correctly and check your Cloudinary dashboard for usage issues.
++ If your app won't start you can run `heroku logs --tail` in the terminal to view error messages in the log or loook on the log on the Heroku dashboard.
+
+### Quick local development setup for other developers:
+
+1. Clone the repo.
+2. Create your virtual environment.
+3. Install dependancies to requirements.txt.
+4. Copy environment variables.
+5. Fill `.env` with real values.
+6. Run migrations.
+7. Run server.
 
 ## Testing
 
@@ -116,3 +201,12 @@ As I have been testing most aspects as I write the code for the site, I am hopin
     + When I say basic, I mean really basic. The only automated tests I ran were for form validation on my blog posts. Both tests passed with no issues. I will endeavour to use this functionality more in future.
 
 + For all bugs I encountered whilst writing my initial code please refer to the 'bugs section' further up this page.
+
+## Security
+
++ All secret keys are handled through `.gitignore` initially, then with a `.env` file for local deployment, then finally through config vars in Heroku.
++ Data storage is done through Heroku and Cloudinary using secret keys as described above and PostgreSQL within config vars and `.env` file.
++ I've used Crispy forms to generate unique tokens for each user session. Then each form has to include this token for Django to validate it. If the token is missing due to malicious information, or its invalid/missing, then the message will be automatically rejected thanks to Crispy forms.
++ I've also used `allauth` for user authentication to ensure that casual visitors or people with malicious intent cannot make adjustments or comments on the website.
++ As an extra layer of security for our users I have also made it so that all comments must be approved by a superuser, this also stops offensive material slipping through the net.
++ `ALLOWED_HOSTS` is the first layer of security for my site as it tells Django which domain names are allowed to serve this application. In this case I have only used Heroku and localhost to limit malicious activity as much as possible.
