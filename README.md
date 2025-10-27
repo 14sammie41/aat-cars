@@ -135,9 +135,9 @@ Ensure you have the follwing pre requisites to start:
 11. Link your GitHub in the Heroku Deploy tab.
 12. In the Heroku deploy tab, click the Deploy button and wait for it to run.
 13. Open App.
-+ ![Screenshot of config vars on Heroku](static\images\config-vars.png)
-+ ![Screenshot of live homepage](static\images\aatcars-live.png)
-+ ![Screenshot of .env.example file](static\images\example-screenshot-env.png)
++ ![Screenshot of config vars on Heroku](C:\Users\14sam\.vscode\aat-cars\static\images\config-vars.png)
++ ![Screenshot of live homepage](C:\Users\14sam\.vscode\aat-cars\static\images\aatcars-live.png)
++ ![Screenshot of .env.example file](C:\Users\14sam\.vscode\aat-cars\static\images\example-screenshot-env.png)
 
 ### Troubleshooting Heroku deployment:
 
